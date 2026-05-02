@@ -1,0 +1,98 @@
+{
+  "project": "hanaloop-carbon-dashboard",
+  "updated": "2026-05-03",
+  "phases": [
+    {
+      "id": 0,
+      "name": "Harness Setup",
+      "issue": 1,
+      "status": "in_progress",
+      "tasks": [
+        { "id": "0.1", "name": "CLAUDE.md constitution", "status": "done" },
+        { "id": "0.2", "name": ".claude/ folder (settings.json, commands/ship.md)", "status": "done" },
+        { "id": "0.3", "name": "docs/architecture.md", "status": "done" },
+        { "id": "0.4", "name": "status.json", "status": "done" },
+        { "id": "0.5", "name": "npm scripts (type-check, format, etc.)", "status": "done" },
+        { "id": "0.6", "name": ".prettierrc + commitlint.config.ts", "status": "pending" },
+        { "id": "0.7", "name": "husky hooks", "status": "pending" }
+      ]
+    },
+    {
+      "id": 1,
+      "name": "FSD Structure + Zod Schemas",
+      "issue": 2,
+      "status": "pending",
+      "tasks": []
+    },
+    {
+      "id": 2,
+      "name": "Dashboard Layout",
+      "issue": 3,
+      "status": "pending",
+      "tasks": []
+    },
+    {
+      "id": 3,
+      "name": "KPI Cards",
+      "issue": 4,
+      "status": "pending",
+      "tasks": []
+    },
+    {
+      "id": 4,
+      "name": "Emission Trend Chart",
+      "issue": 5,
+      "status": "pending",
+      "tasks": []
+    },
+    {
+      "id": 5,
+      "name": "GHG Scope Breakdown Chart",
+      "issue": 6,
+      "status": "pending",
+      "tasks": []
+    },
+    {
+      "id": 6,
+      "name": "Activity Table",
+      "issue": 7,
+      "status": "pending",
+      "tasks": []
+    },
+    {
+      "id": 7,
+      "name": "Delete Activity",
+      "issue": 8,
+      "status": "pending",
+      "tasks": []
+    },
+    {
+      "id": 8,
+      "name": "Add Activity Form",
+      "issue": 9,
+      "status": "pending",
+      "tasks": []
+    },
+    {
+      "id": 9,
+      "name": "README",
+      "issue": 10,
+      "status": "pending",
+      "tasks": []
+    },
+    {
+      "id": 10,
+      "name": "Excel Import (Bonus)",
+      "issue": 11,
+      "status": "pending",
+      "tasks": []
+    },
+    {
+      "id": 11,
+      "name": "Docker Compose (Bonus)",
+      "issue": 12,
+      "status": "pending",
+      "tasks": []
+    }
+  ]
+}
