@@ -1,0 +1,77 @@
+import type { Activity, EmissionFactor } from '@/lib/types';
+
+// 엑셀 "과제용 데이터" 시트 — 원본 활동 데이터
+export const activities: Activity[] = [
+  // 전기 (한국전력)
+  { id: 'a-001', date: '2025-01-01', type: '전기', description: '한국전력', amount: 110, unit: 'kWh' },
+  { id: 'a-002', date: '2025-02-01', type: '전기', description: '한국전력', amount: 120, unit: 'kWh' },
+  { id: 'a-003', date: '2025-03-01', type: '전기', description: '한국전력', amount: 115, unit: 'kWh' },
+  { id: 'a-004', date: '2025-04-01', type: '전기', description: '한국전력', amount: 105, unit: 'kWh' },
+  { id: 'a-005', date: '2025-05-01', type: '전기', description: '한국전력', amount: 98, unit: 'kWh' },
+  { id: 'a-006', date: '2025-06-01', type: '전기', description: '한국전력', amount: 130, unit: 'kWh' },
+  { id: 'a-007', date: '2025-07-01', type: '전기', description: '한국전력', amount: 125, unit: 'kWh' },
+  { id: 'a-008', date: '2025-08-01', type: '전기', description: '한국전력', amount: 118, unit: 'kWh' },
+  // 원소재 — 플라스틱 1
+  { id: 'a-009', date: '2025-01-01', type: '원소재', description: '플라스틱 1', amount: 230, unit: 'kg' },
+  { id: 'a-010', date: '2025-02-01', type: '원소재', description: '플라스틱 1', amount: 180, unit: 'kg' },
+  { id: 'a-011', date: '2025-03-01', type: '원소재', description: '플라스틱 1', amount: 310, unit: 'kg' },
+  { id: 'a-012', date: '2025-04-01', type: '원소재', description: '플라스틱 1', amount: 260, unit: 'kg' },
+  { id: 'a-013', date: '2025-05-01', type: '원소재', description: '플라스틱 1', amount: 200, unit: 'kg' },
+  { id: 'a-014', date: '2025-06-01', type: '원소재', description: '플라스틱 1', amount: 340, unit: 'kg' },
+  { id: 'a-015', date: '2025-07-01', type: '원소재', description: '플라스틱 1', amount: 290, unit: 'kg' },
+  { id: 'a-016', date: '2025-08-01', type: '원소재', description: '플라스틱 1', amount: 510, unit: 'kg' },
+  // 원소재 — 플라스틱 2
+  { id: 'a-017', date: '2025-01-01', type: '원소재', description: '플라스틱 2', amount: 23, unit: 'kg' },
+  { id: 'a-018', date: '2025-02-01', type: '원소재', description: '플라스틱 2', amount: 45, unit: 'kg' },
+  { id: 'a-019', date: '2025-03-01', type: '원소재', description: '플라스틱 2', amount: 38, unit: 'kg' },
+  { id: 'a-020', date: '2025-04-01', type: '원소재', description: '플라스틱 2', amount: 60, unit: 'kg' },
+  { id: 'a-021', date: '2025-05-01', type: '원소재', description: '플라스틱 2', amount: 55, unit: 'kg' },
+  { id: 'a-022', date: '2025-06-01', type: '원소재', description: '플라스틱 2', amount: 70, unit: 'kg' },
+  { id: 'a-023', date: '2025-07-01', type: '원소재', description: '플라스틱 2', amount: 48, unit: 'kg' },
+  { id: 'a-024', date: '2025-08-01', type: '원소재', description: '플라스틱 2', amount: 82, unit: 'kg' },
+  // 운송 — 트럭
+  { id: 'a-025', date: '2025-01-01', type: '운송', description: '트럭', amount: 41, unit: 'ton-km' },
+  { id: 'a-026', date: '2025-02-01', type: '운송', description: '트럭', amount: 38, unit: 'ton-km' },
+  { id: 'a-027', date: '2025-03-01', type: '운송', description: '트럭', amount: 55, unit: 'ton-km' },
+  { id: 'a-028', date: '2025-04-01', type: '운송', description: '트럭', amount: 47, unit: 'ton-km' },
+  { id: 'a-029', date: '2025-05-01', type: '운송', description: '트럭', amount: 60, unit: 'ton-km' },
+  { id: 'a-030', date: '2025-06-01', type: '운송', description: '트럭', amount: 72, unit: 'ton-km' },
+  { id: 'a-031', date: '2025-07-01', type: '운송', description: '트럭', amount: 65, unit: 'ton-km' },
+  { id: 'a-032', date: '2025-08-01', type: '운송', description: '트럭', amount: 211, unit: 'ton-km' },
+];
+
+// 엑셀 "배출계수" 시트 — 버전 이력 포함
+export const emissionFactors: EmissionFactor[] = [
+  {
+    id: 'ef-001',
+    category: '전기 (한국전력 기본값)',
+    matchKey: '전기:한국전력',
+    factor: 0.456,
+    unit: 'kgCO₂e / kWh',
+    validFrom: '2025-01-01',
+  },
+  {
+    id: 'ef-002',
+    category: '원소재 — 플라스틱 1',
+    matchKey: '원소재:플라스틱 1',
+    factor: 2.3,
+    unit: 'kgCO₂e / kg',
+    validFrom: '2025-01-01',
+  },
+  {
+    id: 'ef-003',
+    category: '원소재 — 플라스틱 2',
+    matchKey: '원소재:플라스틱 2',
+    factor: 3.2,
+    unit: 'kgCO₂e / kg',
+    validFrom: '2025-01-01',
+  },
+  {
+    id: 'ef-004',
+    category: '운송 — 트럭',
+    matchKey: '운송:트럭',
+    factor: 3.5,
+    unit: 'kgCO₂e / ton-km',
+    validFrom: '2025-01-01',
+  },
+];
