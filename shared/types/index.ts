@@ -5,7 +5,7 @@ export type ActivityType = z.infer<typeof ActivityTypeSchema>
 
 export const ActivitySchema = z.object({
   id: z.string().min(1),
-  date: z.iso.date(),
+  date: z.string().date(),
   type: ActivityTypeSchema,
   description: z.string().min(1),
   amount: z.number().nonnegative(),
