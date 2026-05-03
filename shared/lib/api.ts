@@ -4,7 +4,7 @@
  * - 쓰기 작업은 15% 확률로 실패 (에러/롤백 UI 테스트용)
  */
 import { activities as seedActivities, emissionFactors as seedFactors } from '@/data/seed'
-import type { Activity, EmissionFactor, NewActivityInput } from './types'
+import type { Activity, EmissionFactor, NewActivityInput } from '@/shared/types'
 
 // 메모리 내 상태 (런타임 동안 유지)
 let _activities: Activity[] = [...seedActivities]

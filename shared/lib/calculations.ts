@@ -1,4 +1,10 @@
-import type { Activity, ActivityType, EmissionFactor, EmissionResult, MonthlyTotal } from './types'
+import type {
+  Activity,
+  ActivityType,
+  EmissionFactor,
+  EmissionResult,
+  MonthlyTotal,
+} from '@/shared/types'
 
 /**
  * 배출량 계산: 활동량 × 배출계수 = kgCO₂e

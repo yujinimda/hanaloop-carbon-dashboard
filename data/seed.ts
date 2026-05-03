@@ -1,4 +1,4 @@
-import type { Activity, EmissionFactor } from '@/lib/types'
+import type { Activity, EmissionFactor } from '@/shared/types'
 
 // 엑셀 "과제용 데이터" 시트 — 원본 활동 데이터
 export const activities: Activity[] = [
