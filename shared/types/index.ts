@@ -25,7 +25,7 @@ export type EmissionFactor = z.infer<typeof EmissionFactorSchema>
 
 export const EmissionResultSchema = z.object({
   activityId: z.string().min(1),
-  date: z.iso.date(),
+  date: z.string().date(),
   type: ActivityTypeSchema,
   description: z.string().min(1),
   amount: z.number(),
