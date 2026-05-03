@@ -19,7 +19,7 @@ export const EmissionFactorSchema = z.object({
   matchKey: z.string().min(1),
   factor: z.number().nonnegative(),
   unit: z.string().min(1),
-  validFrom: z.iso.date(),
+  validFrom: z.string().date(),
 })
 export type EmissionFactor = z.infer<typeof EmissionFactorSchema>
 
