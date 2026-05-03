@@ -1,9 +1,5 @@
 {
   "permissions": {
-    "allow": [
-      "Bash(pnpm *)",
-      "Bash(git *)",
-      "Bash(gh *)"
-    ]
+    "allow": ["Bash(pnpm *)", "Bash(git *)", "Bash(gh *)"]
   }
 }

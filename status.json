@@ -9,12 +9,16 @@
       "status": "in_progress",
       "tasks": [
         { "id": "0.1", "name": "CLAUDE.md constitution", "status": "done" },
-        { "id": "0.2", "name": ".claude/ folder (settings.json, commands/ship.md)", "status": "done" },
+        {
+          "id": "0.2",
+          "name": ".claude/ folder (settings.json, commands/ship.md)",
+          "status": "done"
+        },
         { "id": "0.3", "name": "docs/architecture.md", "status": "done" },
         { "id": "0.4", "name": "status.json", "status": "done" },
         { "id": "0.5", "name": "npm scripts (type-check, format, etc.)", "status": "done" },
-        { "id": "0.6", "name": ".prettierrc + commitlint.config.ts", "status": "pending" },
-        { "id": "0.7", "name": "husky hooks", "status": "pending" }
+        { "id": "0.6", "name": ".prettierrc + commitlint.config.js", "status": "done" },
+        { "id": "0.7", "name": "husky hooks", "status": "done" }
       ]
     },
     {

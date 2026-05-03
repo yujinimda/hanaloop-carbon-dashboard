@@ -11,18 +11,18 @@
 
 ## 2. 기술 스택
 
-| 항목 | 버전/선택 |
-|------|----------|
-| Framework | Next.js 16.2.4 (App Router, Turbopack) |
-| Language | TypeScript 5 (strict) |
-| Styling | Tailwind v4 + shadcn/ui (base-nova) |
-| Data Fetching | SWR 2.4 |
-| Forms | react-hook-form 7 + @hookform/resolvers + Zod 4 |
-| Charts | recharts 3.8 |
-| UI Primitives | @base-ui/react (NOT @radix-ui) |
-| Icons | lucide-react |
-| Toast | sonner |
-| Testing | vitest 4 + jsdom |
+| 항목          | 버전/선택                                       |
+| ------------- | ----------------------------------------------- |
+| Framework     | Next.js 16.2.4 (App Router, Turbopack)          |
+| Language      | TypeScript 5 (strict)                           |
+| Styling       | Tailwind v4 + shadcn/ui (base-nova)             |
+| Data Fetching | SWR 2.4                                         |
+| Forms         | react-hook-form 7 + @hookform/resolvers + Zod 4 |
+| Charts        | recharts 3.8                                    |
+| UI Primitives | @base-ui/react (NOT @radix-ui)                  |
+| Icons         | lucide-react                                    |
+| Toast         | sonner                                          |
+| Testing       | vitest 4 + jsdom                                |
 
 **절대 쓰지 말 것**: MUI, @radix-ui/\*, Zustand, Axios, Prisma
 
@@ -50,6 +50,7 @@ docs/              → 아키텍처 문서
 ```
 
 **레이어 규칙**:
+
 - `features/` 간 상호 임포트 금지
 - `features/` → `shared/` 임포트 가능
 - `app/` → `features/`, `shared/` 임포트 가능
@@ -58,6 +59,7 @@ docs/              → 아키텍처 문서
 ## 4. TypeScript & Zod 규칙
 
 **타입은 Zod 스키마에서만 나온다**:
+
 ```typescript
 // shared/types/index.ts만 타입 정의
 export const ActivitySchema = z.object({ ... })
@@ -68,17 +70,20 @@ import type { Activity } from '@/shared/types'
 ```
 
 **절대 금지**:
+
 - `interface` 선언 (테스트 파일 제외)
 - `type MyType = { ... }` 직접 선언
 - `z.object()` 를 컴포넌트 파일 내에서 인라인 정의
 
 **Zod v4 주의사항**:
+
 - `z.string().nonempty()` 없음 → `z.string().min(1)` 사용
 - `z.record(KeySchema, ValueSchema)` — 키 타입 명시 필수
 
 ## 5. SWR 데이터 패칭 규칙
 
 **SWR 키는 QUERY_KEYS만**:
+
 ```typescript
 // ✅ 올바름
 useSWR(QUERY_KEYS.activities, fetchActivities)
@@ -89,6 +94,7 @@ useSWR('/api/activities', fetchActivities)
 ```
 
 **훅 패턴**:
+
 ```typescript
 // shared/hooks/useActivities.ts
 'use client'
@@ -103,6 +109,7 @@ export function useActivities() {
 ```
 
 **뮤테이션 패턴**:
+
 ```typescript
 // 성공 시 반드시 mutate로 캐시 무효화
 await mutate(QUERY_KEYS.activities)
@@ -112,10 +119,12 @@ await mutate(QUERY_KEYS.activities)
 ## 6. 컴포넌트 규칙
 
 **'use client' 사용 기준**:
+
 - SWR 훅, useState, useEffect, 이벤트 핸들러 → `'use client'`
 - 순수 표시용(props만) → 서버 컴포넌트 (디렉티브 없음)
 
 **컴포넌트 파일 패턴**:
+
 ```typescript
 // features/dashboard/ui/KpiCard.tsx
 type KpiCardProps = {
@@ -130,6 +139,7 @@ export function KpiCard({ label, value, trend }: KpiCardProps) {
 ```
 
 **규칙**:
+
 - Named exports only (app/ 제외)
 - props 타입은 컴포넌트 위에 `type`으로 선언
 - shadcn `@base-ui/react` 사용 — `@radix-ui/*` 임포트 절대 금지
@@ -141,9 +151,9 @@ export function KpiCard({ label, value, trend }: KpiCardProps) {
 
 ```typescript
 export const GHG_SCOPE = {
-  전기: 'Scope 2',   // 간접 배출 — 구매 전력
+  전기: 'Scope 2', // 간접 배출 — 구매 전력
   원소재: 'Scope 3', // 가치사슬 — 업스트림
-  운송: 'Scope 3',   // 가치사슬 — 운송
+  운송: 'Scope 3', // 가치사슬 — 운송
 } as const
 ```
 
@@ -152,6 +162,7 @@ UI에서 Scope 라벨을 하드코딩하지 않음. 항상 `GHG_SCOPE[activity.t
 ## 8. 테스트 규칙
 
 **3-case 패턴** (순수 함수 / 스키마 검증):
+
 1. ✅ 성공 케이스
 2. ❌ 에러 케이스 (잘못된 입력, 누락된 계수)
 3. 🔲 경계값 (1000kg 임계값, 빈 배열)
@@ -161,16 +172,18 @@ UI에서 Scope 라벨을 하드코딩하지 않음. 항상 `GHG_SCOPE[activity.t
 ## 9. 커밋 규칙
 
 conventional commits 강제 (commitlint):
+
 ```
-feat: add KPI card component #4
+feat: add kpi card component #4
 fix: handle missing emission factor #2
 chore: setup prettier config #1
-refactor: migrate types to Zod schemas #2
+refactor: migrate types to zod schemas #2
 docs: add architecture.md #1
 test: add schema validation tests #2
 ```
 
 형식: `type: lowercase description #issue-number`
+
 - 마침표 없음, 72자 이내, 명령형
 
 ## 10. 워크플로우
