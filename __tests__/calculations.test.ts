@@ -5,8 +5,8 @@ import {
   aggregateByType,
   monthOverMonthChange,
   formatEmission,
-} from '@/lib/calculations'
-import type { Activity, EmissionFactor } from '@/lib/types'
+} from '@/shared/lib/calculations'
+import type { Activity, EmissionFactor } from '@/shared/types'
 
 const factors: EmissionFactor[] = [
   {
