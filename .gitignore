@@ -39,3 +39,11 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# design pipeline (Claude Artifact → markup → review)
+/claude-export/*
+!/claude-export/.gitkeep
+/screenshots
+/diff
+/playwright-report
+/test-results

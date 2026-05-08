@@ -12,6 +12,10 @@ const eslintConfig = defineConfig([
     'out/**',
     'build/**',
     'next-env.d.ts',
+    // Design pipeline artifacts (Claude Design exports, generated screenshots)
+    'claude-export/**',
+    'screenshots/**',
+    'diff/**',
   ]),
 ])
 
