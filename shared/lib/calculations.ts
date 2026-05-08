@@ -89,8 +89,16 @@ export function monthOverMonthChange(monthly: MonthlyTotal[], targetMonth: strin
  * kgCO₂e → 표시용 문자열 (1000kg 이상은 tCO₂e로)
  */
 export function formatEmission(kg: number): string {
+  const { value, unit } = formatEmissionParts(kg)
+  return `${value} ${unit}`
+}
+
+/**
+ * formatEmission과 동일 임계치 — UI가 숫자/단위를 분리 표시할 때 사용.
+ */
+export function formatEmissionParts(kg: number): { value: string; unit: 'kgCO₂e' | 'tCO₂e' } {
   if (kg >= 1000) {
-    return `${(kg / 1000).toFixed(2)} tCO₂e`
+    return { value: (kg / 1000).toFixed(2), unit: 'tCO₂e' }
   }
-  return `${kg.toFixed(2)} kgCO₂e`
+  return { value: kg.toFixed(2), unit: 'kgCO₂e' }
 }

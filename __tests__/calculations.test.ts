@@ -5,6 +5,7 @@ import {
   aggregateByType,
   monthOverMonthChange,
   formatEmission,
+  formatEmissionParts,
 } from '@/shared/lib/calculations'
 import type { Activity, EmissionFactor } from '@/shared/types'
 
@@ -156,5 +157,19 @@ describe('formatEmission', () => {
 
   it('1000 이상은 tCO₂e로 표시', () => {
     expect(formatEmission(1500)).toBe('1.50 tCO₂e')
+  })
+})
+
+describe('formatEmissionParts', () => {
+  it('1000 미만은 kgCO₂e 단위로 분리한다', () => {
+    expect(formatEmissionParts(722.66)).toEqual({ value: '722.66', unit: 'kgCO₂e' })
+  })
+
+  it('1000 이상은 tCO₂e 단위로 분리한다', () => {
+    expect(formatEmissionParts(2233.18)).toEqual({ value: '2.23', unit: 'tCO₂e' })
+  })
+
+  it('정확히 1000kg은 tCO₂e 임계치 경계', () => {
+    expect(formatEmissionParts(1000)).toEqual({ value: '1.00', unit: 'tCO₂e' })
   })
 })
