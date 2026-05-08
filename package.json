@@ -14,6 +14,10 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
+    "design:inventory": "node scripts/generate-inventory.mjs",
+    "design:pre-review": "bash scripts/pre-review.sh",
+    "design:screenshot": "node scripts/screenshot.mjs",
+    "design:pixel-diff": "node scripts/pixel-diff.mjs",
     "prepare": "husky"
   },
   "dependencies": {
@@ -48,9 +52,13 @@
     "eslint-config-next": "16.2.4",
     "husky": "^9.1.7",
     "jsdom": "^29.1.1",
+    "pixelmatch": "^7.2.0",
+    "playwright": "^1.59.1",
+    "pngjs": "^7.0.0",
     "prettier": "^3.8.3",
     "prettier-plugin-tailwindcss": "^0.8.0",
     "tailwindcss": "^4",
+    "ts-morph": "^28.0.0",
     "typescript": "^5",
     "vitest": "^4.1.5"
   }
