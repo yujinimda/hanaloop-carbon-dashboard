@@ -71,6 +71,16 @@ Other exports: `buttonVariants`
 | --------- | ------------------------------- |
 | `Label`   | `React.ComponentProps<'label'>` |
 
+### `shared/ui/progress.tsx`
+
+| Component           | Props type                          |
+| ------------------- | ----------------------------------- |
+| `Progress`          | `ProgressPrimitive.Root.Props`      |
+| `ProgressTrack`     | `ProgressPrimitive.Track.Props`     |
+| `ProgressIndicator` | `ProgressPrimitive.Indicator.Props` |
+| `ProgressLabel`     | `ProgressPrimitive.Label.Props`     |
+| `ProgressValue`     | `ProgressPrimitive.Value.Props`     |
+
 ### `shared/ui/select.tsx`
 
 | Component                | Props type                                                                                                                                                         |
@@ -105,6 +115,40 @@ Other exports: `buttonVariants`
 | `TableCell`    | `React.ComponentProps<'td'>`      |
 | `TableCaption` | `React.ComponentProps<'caption'>` |
 
-## features/\* (none yet — will populate as features are added)
+### `shared/ui/theme-provider.tsx`
 
-_No components yet._
+| Component       | Props type                                  |
+| --------------- | ------------------------------------------- |
+| `ThemeProvider` | `ComponentProps<typeof NextThemesProvider>` |
+
+## features/dashboard/ui
+
+### `features/dashboard/ui/DashboardHeader.tsx`
+
+| Component         | Props type |
+| ----------------- | ---------- |
+| `DashboardHeader` | `—`        |
+
+### `features/dashboard/ui/KpiCard.tsx`
+
+| Component | Props type     |
+| --------- | -------------- |
+| `KpiCard` | `KpiCardProps` |
+
+### `features/dashboard/ui/KpiGrid.tsx`
+
+| Component | Props type |
+| --------- | ---------- |
+| `KpiGrid` | `—`        |
+
+### `features/dashboard/ui/KpiValue.tsx`
+
+| Component  | Props type      |
+| ---------- | --------------- |
+| `KpiValue` | `KpiValueProps` |
+
+### `features/dashboard/ui/ThemeToggle.tsx`
+
+| Component     | Props type |
+| ------------- | ---------- |
+| `ThemeToggle` | `—`        |
